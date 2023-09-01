@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 function CountdownTimer({ handleQuizSubmit = () => {} }) {
-  const [minutes, setMinutes] = useState(30);
+  const [minutes, setMinutes] = useState(1);
 
   const [seconds, setSeconds] = useState(0);
 

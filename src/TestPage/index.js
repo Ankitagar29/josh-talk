@@ -31,50 +31,67 @@ const TestPage = () => {
   };
 
   return (
-    <div className="test_page_container">
+    <div>
       {loading ? null : (
         <>
-          <div className="box">
-            <TestQuestion
-              testQuestions={testQuestions}
-              questionNumber={questionNumber}
-              setTestQuestions={setTestQuestions}
-              selectedOption={selectedOption}
-              setSelectedOption={setSelectedOption}
-            />
-            <div className="footer">
-              {questionNumber < 15 ? (
-                <>
-                  <button onClick={() => setQuestionNumber((pev) => pev + 1)}>
-                    Skip to Next
-                  </button>
-                  <button onClick={() => handleSubmit()}>Submit</button>
-                </>
-              ) : (
-                <button onClick={() => handleQuizSubmit()}>Submit Quiz</button>
-              )}
+          <div className="flex">
+            <div className="box">
+              <TestQuestion
+                testQuestions={testQuestions}
+                questionNumber={questionNumber}
+                setTestQuestions={setTestQuestions}
+                selectedOption={selectedOption}
+                setSelectedOption={setSelectedOption}
+              />
+            </div>
+            <div className="right_box">
+              <CountDownTimer handleQuizSubmit={handleQuizSubmit} />
+              {[...Array(15).keys()].map((item, index) => {
+                return (
+                  <div
+                    className="status"
+                    onClick={() => setQuestionNumber(item + 1)}
+                  >
+                    <span className="width_overview">{item + 1}</span>
+                    <span className="width_overview">
+                      {testQuestions[index]?.visited ? (
+                        <div className="visited">Visited</div>
+                      ) : null}
+                    </span>
+                    <span className="width_overview">
+                      {testQuestions[index]?.answered ? (
+                        <div className="answered">Answered</div>
+                      ) : null}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
           </div>
-          <div className="right_box">
-            <CountDownTimer handleQuizSubmit={handleQuizSubmit} />
-            {[...Array(15).keys()].map((item, index) => {
-              return (
-                <div
-                  className="status"
-                  onClick={() => setQuestionNumber(item + 1)}
+          <div className="footer">
+            {questionNumber < 15 ? (
+              <>
+                <button
+                  className="button skip"
+                  onClick={() => setQuestionNumber((pev) => pev + 1)}
                 >
-                  <span className="width_overview">{item + 1}</span>
-                  <span className="width_overview">
-                    {testQuestions[index]?.visited ? <div>Visited</div> : null}
-                  </span>
-                  <span className="width_overview">
-                    {testQuestions[index]?.answered ? (
-                      <div>Answered</div>
-                    ) : null}
-                  </span>
-                </div>
-              );
-            })}
+                  Skip to Next
+                </button>
+                <button
+                  className="button submit"
+                  onClick={() => handleSubmit()}
+                >
+                  Submit
+                </button>
+              </>
+            ) : (
+              <button
+                className="button submit_quiz"
+                onClick={() => handleQuizSubmit()}
+              >
+                Submit Quiz
+              </button>
+            )}
           </div>
         </>
       )}

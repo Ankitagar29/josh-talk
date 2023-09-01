@@ -13,8 +13,14 @@ const FinalPage = () => {
           <div className="box_answer">
             {index + 1}. {question}
             <div className="flex_row">
-              <div>Your answered:{answered}</div>
-              <div>Correct answered:{correct_answer}</div>
+              <div
+                className={answered === correct_answer ? "success" : "failure"}
+              >
+                Your answered:{answered}
+              </div>
+              <div className="correct_answer">
+                Correct answered:{correct_answer}
+              </div>
             </div>
           </div>
         );
