@@ -1,14 +1,5 @@
 import { useState, useEffect } from "react";
-
-function insertElementAtRandomPosition(array, elementToInsert) {
-  // Generate a random index within the bounds of the array
-  const randomIndex = Math.floor(Math.random() * (array.length + 1));
-
-  // Use splice to insert the element at the random index
-  array.splice(randomIndex, 0, elementToInsert);
-
-  return array;
-}
+import "./styles.css";
 const TestQuestion = ({
   questionNumber,
   testQuestions = [],
@@ -48,10 +39,10 @@ const TestQuestion = ({
         />
         <div className="category">Category:{category}</div>
       </div>
-      <div>
+      <div className="question_text">
         {questionNumber}. {question}
         {(totalOptions || []).map((option) => (
-          <div key={option}>
+          <div key={option} className="options">
             <label>
               <input
                 type="radio"

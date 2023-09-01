@@ -1,12 +1,17 @@
-.test_page_container{
-    display: flex;
-}
+
 .box {
     min-height: 400px;
     width: 70%;
-    background-color: #ffffff; /* Set the background color you want */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Add a shadow (adjust values as needed) */
+    background-color: #ffffff; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
     margin:20px;
+}
+.footer{
+    min-height: 50px;
+    width: 100%;
+    background-color: #ffffff; 
+    display: flex;
+    justify-content: flex-end;
 }
 .header{
     display: flex;
@@ -20,6 +25,7 @@
     border-radius: 8px;
 }
 .right_box{
+    padding:16px;
     min-height: 50vh;
     width: 25%;
     background-color: #ffffff; /* Set the background color you want */
@@ -27,8 +33,46 @@
     margin:20px;
 }
 .status{
+    margin-top:8px;
     display: flex;
+    cursor:pointer;
+    border-radius: 8px;
+    padding:8px 4px ;
+    background-color: #DDEAF6;
+    
 }
 .width_overview{
     width:30%;
+}
+
+.button{
+    padding:  8px;
+    border-radius: 4px;
+    height:40px;
+    
+   
+}
+.skip{
+    background-color:  #8ed1fc;
+    margin-right: 16px;
+}
+.submit{
+    background-color: #f4792a;
+    margin-right: 16px;
+}
+.submit_quiz{
+    background-color: black;
+    margin-right: 16px;
+    color:white;
+}
+.visited{
+    color:red;
+    font-weight: 700;
+}
+.answered{
+    color:#f4792a;
+    font-weight: 700;
+}
+.flex{
+    display: flex;
 }
