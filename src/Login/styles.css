@@ -1,0 +1,11 @@
+.App {
+  display: flex;
+  flex-direction: row;
+  height:fit-content;
+}
+
+.left_container{
+  min-width:50%;
+  background-color: #007cba;
+  
+}
